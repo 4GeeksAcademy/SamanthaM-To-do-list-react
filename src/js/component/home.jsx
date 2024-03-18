@@ -4,6 +4,15 @@ import React, {useState} from "react";
 const Home = () => {
 	const [inputValue, setinputvalue] = useState("");
 	const [todos, setTodos] = useState([]);
+	
+	function saveToDo (e) {
+		if (e.key=="Enter") {
+			setTodos([...tasks, inputValue])
+			setInputValue("")
+		}
+	}
+	
+	
 	return (
 		<div className="container">
 			<h1>My Todos</h1>
@@ -11,15 +20,21 @@ const Home = () => {
 				<li>
 					<input type="text"
 					onChange={(e) => setinputvalue(e.target.value)}
+					
 					value={inputValue}
+					
+					onKeyPress = {(e) => saveToDo(e)}
+					
 					placeholder="What do you need to do?"></input>
+				
+				
 				</li>
 				{todos.map((item, index) => (
 				<li>
 					{item}{""} 
 					<i 
 						class= "fas fa-trash- alt" 
-							on onClick={() => 
+							 onClick={() => 
 								setTodos(
 									todos.filter(
 										(t, currentIndex) => 
@@ -32,4 +47,4 @@ const Home = () => {
 	);
 };
 
-export default Home
+export default Home;
