@@ -2,12 +2,12 @@ import React, {useState} from "react";
 
 //create your first component
 const Home = () => {
-	const [inputValue, setinputvalue] = useState("");
+	const [inputValue, setInputValue] = useState("");
 	const [todos, setTodos] = useState([]);
 	
 	function saveToDo (e) {
 		if (e.key=="Enter") {
-			setTodos([...tasks, inputValue])
+			setTodos([...todos, inputValue])
 			setInputValue("")
 		}
 	}
@@ -19,7 +19,7 @@ const Home = () => {
 			<ul>
 				<li>
 					<input type="text"
-					onChange={(e) => setinputvalue(e.target.value)}
+					onChange={(e) => setInputValue(e.target.value)}
 					
 					value={inputValue}
 					
@@ -31,9 +31,11 @@ const Home = () => {
 				</li>
 				{todos.map((item, index) => (
 				<li>
-					{item}{""} 
+					{key=index}
+					{item}
+					{""} 
 					<i 
-						class= "fas fa-trash- alt" 
+						class= "fas fa-trash-alt" 
 							 onClick={() => 
 								setTodos(
 									todos.filter(
