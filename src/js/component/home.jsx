@@ -31,7 +31,7 @@ const Home = () => {
 				</li>
 				{todos.map((item, index) => (
 				<li>
-					{key=index}
+					key={index}
 					{item}
 					{""} 
 					<i 
